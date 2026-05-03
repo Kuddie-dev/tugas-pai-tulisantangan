@@ -3,66 +3,99 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tugas PAI - Tulisan Tangan</title>
+    <title>Tugas PAI - Tulisan Tangan Asli</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa&family=Kalam:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
-            background-color: #cbd5e1; /* Gray background behind the paper */
-            padding: 20px 10px;
+            /* Background luar dibuat gelap agar kertas lebih menonjol seperti difoto */
+            background-color: #64748b; 
+            padding: 30px 10px;
             display: flex;
             justify-content: center;
+            margin: 0;
         }
 
         .notebook-paper {
             width: 100%;
             max-width: 800px;
-            background-color: #fff;
+            background-color: #fdfbf7; /* Warna kertas agak kusam/putih tulang */
             position: relative;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-            border-radius: 2px;
+            box-shadow: 2px 10px 25px rgba(0, 0, 0, 0.4); /* Bayangan lebih pekat */
+            border-radius: 3px;
             
-            /* Lined paper effect */
+            /* Garis buku tulis */
             background-image: 
-                linear-gradient(90deg, transparent 69px, #ef4444 69px, #ef4444 71px, transparent 71px), /* Red vertical line */
-                linear-gradient(#fff 39px, #60a5fa 39px, #60a5fa 40px, transparent 40px); /* Blue horizontal lines */
+                linear-gradient(90deg, transparent 79px, #ef4444 79px, #ef4444 81px, transparent 81px),
+                linear-gradient(#fdfbf7 39px, #93c5fd 39px, #93c5fd 40px, transparent 40px);
             background-size: 100% 100%, 100% 40px;
             
-            /* Typography setup */
-            font-family: 'Caveat', cursive;
-            font-size: 22px;
-            line-height: 40px; /* Must match the background grid (40px) */
-            color: #1e293b; /* Ink color */
-            padding: 40px 30px 40px 90px; /* Left padding clears the red line */
+            /* Pengaturan tipografi tulisan tangan */
+            font-family: 'Kalam', cursive;
+            font-size: 20px; /* Ukuran pas untuk kertas */
+            line-height: 40px; /* Harus sama dengan jarak garis biru (40px) */
+            
+            /* Warna Tinta Pulpen Biru Gelap dengan sedikit transparansi */
+            color: rgba(15, 23, 75, 0.9); 
+            text-shadow: 0px 0px 0.5px rgba(15, 23, 75, 0.3); /* Efek tinta meresap */
+            
+            padding: 42px 30px 40px 95px; /* Menyesuaikan posisi teks di atas garis */
+            overflow: hidden;
         }
 
-        /* Adjusting elements to align with the 40px grid */
+        /* --- TRIK BIAR TULISAN BERANTAKAN/NATURAL --- */
+        .content {
+            position: relative;
+            top: -5px; /* Mengangkat teks agar pas duduk di atas garis biru */
+        }
+
         .content div {
             margin: 0;
             padding: 0;
+            /* Default rotasi sedikit miring */
+            transform: rotate(-0.3deg); 
         }
         
-        .indent {
-            margin-left: 20px;
+        /* Baris genap miring ke kanan sedikit */
+        .content div:nth-child(even) {
+            transform: rotate(0.4deg) translateX(2px);
         }
 
+        /* Baris kelipatan tiga bergeser sedikit */
+        .content div:nth-child(3n) {
+            transform: rotate(-0.2deg) translateY(1px);
+        }
+
+        /* Baris kelipatan lima */
+        .content div:nth-child(5n) {
+            transform: rotate(0.5deg) translateX(-1px);
+        }
+
+        .indent {
+            margin-left: 22px;
+        }
+
+        /* Tulisan Arab bergaya tulisan tangan */
         .arabic {
-            font-family: 'Amiri', serif;
+            font-family: 'Aref Ruqaa', serif;
             font-size: 26px;
-            color: #000;
-            line-height: 40px; /* Keep alignment */
+            color: rgba(0, 0, 0, 0.85); /* Tinta hitam untuk arab */
+            line-height: 40px;
             display: inline-block;
+            transform: rotate(0deg) !important; /* Arab dilarang miring agar tetap mudah dibaca */
         }
 
         .header-box {
-            margin-bottom: 40px; /* Skip one line */
+            margin-bottom: 40px;
+            font-weight: 700;
+            text-align: center;
+            transform: rotate(0deg) !important;
         }
         
-        .highlight {
-            font-weight: 700;
-            color: #0f172a;
+        /* Coretan tipis-tipis */
+        .messy {
+            letter-spacing: 0.5px;
         }
     </style>
 </head>
@@ -70,71 +103,71 @@
 
     <div class="notebook-paper">
         <div class="content">
-            <div class="header-box text-center highlight">
+            <div class="header-box">
                 TUGAS PAI KELAS 7 BAB 10 (MENGHORMATI ORANG TUA DAN GURU)
             </div>
 
             <div>NAMA : ..........................................</div>
             <div>KELAS : ..........................................</div>
-            <div><br></div> <!-- Empty line -->
+            <div><br></div>
 
-            <div>1. Sebutkan 5 cara berbakti kepada orang tua yang masih hidup!</div>
+            <div class="messy">1. Sebutkan 5 cara berbakti kepada orang tua yang masih hidup!</div>
             <div class="indent">a. Taat pada perintahnya (selama baik).</div>
             <div class="indent">b. Berbicara sopan dan lembut.</div>
             <div class="indent">c. Membantu pekerjaan rumah.</div>
             <div class="indent">d. Merawat mereka saat sakit/tua.</div>
             <div class="indent">e. Selalu mendoakan mereka.</div>
             
-            <div>2. Sebutkan 5 cara berbakti kepada orang tua yang sudah meninggal dunia!</div>
+            <div class="messy">2. Sebutkan 5 cara berbakti kepada orang tua yang sudah meninggal dunia!</div>
             <div class="indent">a. Mendoakan ampunan untuk mereka.</div>
             <div class="indent">b. Melaksanakan wasiatnya.</div>
             <div class="indent">c. Menyambung silaturahmi dengan kerabatnya.</div>
             <div class="indent">d. Bersedekah atas nama mereka.</div>
             <div class="indent">e. Menjaga nama baiknya.</div>
 
-            <div>3. Sebutkan 5 alasan mengapa kita harus menghormati orang tua!</div>
+            <div class="messy">3. Sebutkan 5 alasan mengapa kita harus menghormati orang tua!</div>
             <div class="indent">a. Perintah Allah SWT.</div>
             <div class="indent">b. Kunci turunnya ridha Allah.</div>
             <div class="indent">c. Jasa pengorbanan mereka sangat besar.</div>
             <div class="indent">d. Jalan menuju surga.</div>
             <div class="indent">e. Membawa keberkahan rezeki dan usia.</div>
 
-            <div>4. Sebutkan 5 alasan mengapa kita tidak boleh durhaka kepada orang tua!</div>
+            <div class="messy">4. Sebutkan 5 alasan mengapa kita tidak boleh durhaka kepada orang tua!</div>
             <div class="indent">a. Termasuk dosa besar.</div>
             <div class="indent">b. Mengundang murka Allah.</div>
             <div class="indent">c. Mendapat ancaman neraka.</div>
             <div class="indent">d. Azabnya bisa disegerakan di dunia.</div>
             <div class="indent">e. Amal ibadah berisiko tidak diterima.</div>
 
-            <div>5. Sebutkan 5 sikap/perkataan/perbuatan tergolong durhaka kepada orang tua!</div>
+            <div class="messy">5. Sebutkan 5 sikap/perkataan/perbuatan tergolong durhaka kepada orang tua!</div>
             <div class="indent">a. Mengucapkan "ah" saat disuruh.</div>
             <div class="indent">b. Membentak atau membantah.</div>
             <div class="indent">c. Menelantarkan mereka di masa tua.</div>
             <div class="indent">d. Membohongi atau mencuri harta mereka.</div>
             <div class="indent">e. Lebih mengutamakan teman daripada orang tua.</div>
 
-            <div>6. Tulislah teks do'a untuk kedua orang tua dengan tulisan arab dan terjemahkan!</div>
+            <div class="messy">6. Tulislah teks do'a untuk kedua orang tua dengan tulisan arab dan terjemahkan!</div>
             <div class="indent arabic" dir="rtl">رَبِّ اغْفِرْ لِيْ وَلِوَالِدَيَّ وَارْحَمْهُمَا كَمَا رَبَّيَانِيْ صَغِيْرَا</div>
             <div class="indent">Terjemahan: "Ya Tuhanku, ampunilah dosaku dan dosa kedua orang tuaku, </div>
             <div class="indent">dan sayangilah keduanya sebagaimana mereka menyayangiku di waktu kecil."</div>
 
-            <div>7. Sebutkan 5 cara menghormati guru!</div>
+            <div class="messy">7. Sebutkan 5 cara menghormati guru!</div>
             <div class="indent">a. Mengucapkan salam saat bertemu.</div>
             <div class="indent">b. Memperhatikan saat ia mengajar.</div>
             <div class="indent">c. Mengerjakan tugas dengan baik.</div>
             <div class="indent">d. Berbicara dengan sopan.</div>
             <div class="indent">e. Mendoakan kebaikan untuknya.</div>
 
-            <div>8. Sebutkan 3 contoh perilaku ulama dalam menghormati guru mereka!</div>
+            <div class="messy">8. Sebutkan 3 contoh perilaku ulama dalam menghormati guru mereka!</div>
             <div class="indent">a. Selalu mendoakan gurunya.</div>
             <div class="indent">b. Sangat menjaga adab fisik (seperti tidak mendahuluinya).</div>
             <div class="indent">c. Sabar dan ikhlas menerima teguran guru.</div>
 
-            <div>9. Kapan kita harus tidak taat kepada orang tua? Jelaskan dengan dalil!</div>
+            <div class="messy">9. Kapan kita harus tidak taat kepada orang tua? Jelaskan dengan dalil!</div>
             <div class="indent">a. Saat disuruh berbuat syirik/maksiat.</div>
             <div class="indent">b. Dalil: Q.S. Luqman ayat 15 (وَإِن جَاهَدَاكَ عَلَىٰ أَن تُشْرِكَ بِي... فَلَا تُطِعْهُمَا).</div>
 
-            <div>10. Sebutkan 3 adab terhadap guru!</div>
+            <div class="messy">10. Sebutkan 3 adab terhadap guru!</div>
             <div class="indent">a. Meminta izin saat ingin bertanya/keluar.</div>
             <div class="indent">b. Selalu berbaik sangka pada guru.</div>
             <div class="indent">c. Mengamalkan ilmu yang diberikannya.</div>
